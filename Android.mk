@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2017 The LineageOS Project
+# Copyright (C) 2019 The OmniROM Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,15 +14,10 @@
 # limitations under the License.
 #
 
-DEVICE_PATH := device/google/shamrock
+ifneq ($(filter shamrock, $(TARGET_DEVICE)),)
 
-# Init scripts
-PRODUCT_PACKAGES += \
-    fstab.qcom \
-    init.qcom.rc \
-    init.qcom.sh \
-    init.qcom.bt.sh \
-    init.qcom.power.rc \
-    init.qcom.usb.rc \
-    twrp.fstab \
-    ueventd.qcom.rc
+LOCAL_PATH := $(call my-dir)
+
+include $(call all-makefiles-under,$(LOCAL_PATH))
+
+endif
