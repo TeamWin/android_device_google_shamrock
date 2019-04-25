@@ -13,6 +13,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+LOCAL_PATH := device/google/shamrock
+
 # Platform
 TARGET_BOARD_PLATFORM := msm8952
 TARGET_BOOTLOADER_BOARD_NAME := MSM8952
@@ -64,16 +66,24 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 28538268672
 # Recovery
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/etc/twrp.fstab
 
-# TWRP
-RECOVERY_GRAPHICS_USE_LINELENGTH := true
-TARGET_RECOVERY_QCOM_RTC_FIX := true
-BOARD_SUPPRESS_SECURE_ERASE := true
-RECOVERY_SDCARD_ON_DATA := true
-TW_EXCLUDE_SUPERSU := true
-TW_DEFAULT_EXTERNAL_STORAGE := true
-TW_BRIGHTNESS_PATH := /sys/class/leds/lcd-backlight/brightness
-TW_INCLUDE_CRYPTO := true
+# TWRP Configuration
 TW_THEME := portrait_hdpi
+TW_INCLUDE_FUSE_EXFAT := true
+TW_INCLUDE_FUSE_NTFS := true
+TW_INCLUDE_NTFS_3G := true
+TW_MAX_BRIGHTNESS := 255
+TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
+TW_EXCLUDE_SUPERSU := true
+TW_SCREEN_BLANK_ON_BOOT := true
+TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
+TARGET_RECOVERY_QCOM_RTC_FIX := true
+TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
+TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/recovery.fstab
+BOARD_SUPPRESS_SECURE_ERASE := true
+RECOVERY_GRAPHICS_USE_LINELENGTH := true
+TW_INPUT_BLACKLIST := "hbtp_vm"
+TWRP_INCLUDE_LOGCAT := true
+TW_EXTRA_LANGUAGES := true
 
 # TWRP - Remove mouse pointer
 TW_INPUT_BLACKLIST := "hbtp_vm"
