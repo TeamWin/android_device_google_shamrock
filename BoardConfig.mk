@@ -82,6 +82,7 @@ TW_MAX_BRIGHTNESS := 255
 TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
 TW_DEVICE_VERSION := 0 by Rygebin
 TW_EXCLUDE_SUPERSU := true
+TW_EXCLUDE_TWRPAPP := true
 TW_SCREEN_BLANK_ON_BOOT := true
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
 TARGET_RECOVERY_QCOM_RTC_FIX := true
